@@ -34,7 +34,7 @@ async def analyze_product(image_request: ImageRequest):
     prompt = """
     Analyze the attached image of a product and provide the following details:
     - Product name
-    - Price (per item and per box in SGD, where available)
+    - Price (as a single string, describing all variations such as per unit, per box, etc., in SGD where available)
     - Product category and subcategory
     - Common uses
     - Any additional relevant details
@@ -43,8 +43,7 @@ async def analyze_product(image_request: ImageRequest):
     Format your output as JSON with keys:
     - product_name
     - product_description
-    - price_per_item
-    - price_per_box
+    - price (string)
     - category
     - subcategory
     - common_uses
