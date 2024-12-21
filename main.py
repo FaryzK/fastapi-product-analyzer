@@ -32,13 +32,15 @@ async def analyze_product(image_request: ImageRequest):
 
     # Prepare the prompt
     prompt = """
-    Analyze the attached image of a product and provide the following details:
+    Analyze the attached image of a product and provide the following details when they can be found:
     - Product name
     - Price (as a single string, describing all variations such as per unit, per box, etc., in SGD where available)
     - Product category and subcategory
     - Common uses
     - Any additional relevant details
     - Write a concise and professional product description suitable for an e-commerce listing.
+
+    Only for the price field, do not guess the price when the field isn't available. Should there be no price information, state "null".
 
     Format your output as JSON with keys:
     - product_name
